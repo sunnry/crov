@@ -1,0 +1,15 @@
+pi can install gstreamer1.0 directly now.
+1. burning new os image.
+2. #sudo apt-get update
+3. #sudo apt-get install gstreamer1.0
+4. on pi 
+   #gst-launch-1.0 -v tcpclientsrc host=192.168.0.101 port=5000 ! gdpdepay ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink sync=false
+5. on linux pc receiver  
+   #gst-launch-1.0 -v tcpclientsrc host=192.168.0.101 port=5000 ! gdpdepay ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink sync=false
+
+
+
+related discuss resources:
+1. https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=34250&start=125
+
+2. pi.gbaman.info/?p=150
