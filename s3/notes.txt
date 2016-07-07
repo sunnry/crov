@@ -1,0 +1,16 @@
+pi camera with mjpg-streamer on website
+on pi:
+1.#sudo apt-get install libjpeg8-dev imagemagick libv4l-dev
+2.#sudo ln -s /usr/include/linux/videodev2.h  /usr/include/linux/videodev.h
+3.#wget http://sourceforge.net/code-snapshots/svn/m/mj/mjpg-streamer/code/mjpg-streamer-code-182.zip
+4.#unzip mjpg-streamer-code-182.zip
+5.#cd mjpg-streamer-code-182/mjpg-streamer
+6.#make mjpg_streamer input_file.so output_http.so
+7.#sudo cp mjpg_streamer /usr/local/bin
+8.#sudo cp output_http.so input_file.so /usr/local/lib
+9.#sudo cp -R www /usr/local/www
+10.#mkdir /tmp/stream
+11.#raspistill --nopreview -w 640 -h 480 -q 100 -o /tmp/stream/pic.jpg -tl 100 -t 9999999 -th 0:0:0
+12.#LD_LIBRARY_PATH=/usr/local/lib mjpg_streamer -i "input_file.so -f /tmp/stream -n pic.jpg" -o "output_http.so -w /usr/local/www"
+13.on your host pc in browser: http://pi_address:8080
+
