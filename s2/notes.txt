@@ -13,3 +13,13 @@ related discuss resources:
 1. https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=34250&start=125
 
 2. pi.gbaman.info/?p=150
+
+
+update on 2017-01-13
+on newest version 2016-11-25-raspbian-jessie, the old way can not install gstreamer1.0 already, should using following ways:
+1. 2016-11-25-raspbian-jessie.img to sd card.(full version not lite , win32diskimager buring tools)
+2. sudo apt-get update
+3. sudo apt-get install gstreamer1.0
+4. sudo apt-get install gstreamer1.0-tools
+
+gst-launch-1.0 included in gstreamer1.0-tools already, and gstreamer1.0 has included in offical release, do not need third party repo
